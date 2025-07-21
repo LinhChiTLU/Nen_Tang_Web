@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hệ thống quản lý sinh viên</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f4f6f9;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h1 {
+      color: #1976d2;
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    legend {
+      background-color: #e3f2fd;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    table button:hover {
+      background-color: #0d47a1 !important;
+    }
+
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .layout-grid {
+        grid-template-columns: 35% 1fr;
+        align-items: start;
+      }
+    }
+
+    .form-group-grid {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .row > div {
+      margin-bottom: 30px;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
+   <div class="container">
+    <a class="navbar-brand fw-bold text-white" href="#">Quản lý sinh viên</a>
+   </div>
+  </nav>
+
+  <div class="container py-4">
+    
+
+    <div class="layout-grid">
+
+      <section>
+        <form class="bg-white p-4 rounded shadow-sm mb-4">
+          <fieldset>
+            <legend>Nhập thông tin sinh viên</legend>
+
+            <div class="form-group-grid">
+              <label for="masv" class="form-label">Mã sinh viên:</label>
+              <input type="text" class="form-control" id="masv" name="masv" required>
+            </div>
+
+            <div class="form-group-grid">
+              <label for="hoten" class="form-label">Họ và tên:</label>
+              <input type="text" class="form-control" id="hoten" name="hoten" required>
+            </div>
+
+            <div class="form-group-grid">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <div class="form-group-grid">
+              <label for="ngaysinh" class="form-label">Ngày sinh:</label>
+              <input type="date" class="form-control" id="ngaysinh" name="ngaysinh">
+            </div>
+
+            <div class="form-group-grid">
+              <label class="form-label">Giới tính:</label>
+              <div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gioitinh" id="nu" value="Nữ">
+                  <label class="form-check-label" for="nu">Nữ</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gioitinh" id="nam" value="Nam">
+                  <label class="form-check-label" for="nam">Nam</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group-grid">
+              <label for="ghichu" class="form-label">Ghi chú:</label>
+              <textarea class="form-control" id="ghichu" name="ghichu" rows="3"></textarea>
+            </div>
+
+            <div class="text-end">
+              <button type="submit" class="btn btn-success">Gửi thông tin</button>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+
+      <section>
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered table-hover align-middle">
+            <thead class="table-primary text-center">
+              <tr>
+                <th>STT</th>
+                <th>Mã SV</th>
+                <th>Họ tên</th>
+                <th>Email</th>
+                <th>Giới tính</th>
+                <th>Ngày sinh</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              <tr>
+                <td>1</td>
+                <td>2251161956</td>
+                <td>Vũ Thị Linh Chi</td>
+                <td><a href="mailto:chi@gmail.com">chi@gmail.com</a></td>
+                <td>Nữ</td>
+                <td>2004-01-01</td>
+                <td>
+                  <button class="btn btn-sm btn-primary">Sửa</button>
+                  <button class="btn btn-sm btn-danger">Xóa</button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>2251162090</td>
+                <td>Mai Giáng My</td>
+                <td><a href="mailto:maimy@gmail.com">maimy@gmail.com</a></td>
+                <td>Nữ</td>
+                <td>2004-01-11</td>
+                <td>
+                  <button class="btn btn-sm btn-primary">Sửa</button>
+                  <button class="btn btn-sm btn-danger">Xóa</button>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>2251163076</td>
+                <td>Đào Ngọc Lâm</td>
+                <td><a href="mailto:lam1521@gmail.com">lam1521@gmail.com</a></td>
+                <td>Nam</td>
+                <td>2004-05-01</td>
+                <td>
+                  <button class="btn btn-sm btn-primary">Sửa</button>
+                  <button class="btn btn-sm btn-danger">Xóa</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
