@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Employees</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #f4f6f9;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0px;
+    }
+
+
+    .container_head {
+      
+      background-color:#D7D7D7;
+      color: white;
+      padding: 10px;
+    }
+
+    .dieu_huong {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .trai {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 22px;
+      color:black;
+    }
+
+    .nav a {
+      color: black;
+      text-decoration: none;
+      margin: 0px 8px;
+    }
+
+    .nav a:hover {
+      text-decoration: underline;
+    }
+
+    .phai {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .phai input[type="text"] {
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .search-btn {
+      padding: 4px 12px;
+      background-color: #5D8763;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .container_body {
+      padding: 10px;
+      max-width: 1260px;
+      margin: 0 auto;
+    }
+
+    .tieu_de_nho {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1B3C53;
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: white;
+      margin-bottom: 5px;
+    }
+
+    #tieu_de_ql {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .khungbtn {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btnThem {
+      background-color: #5D8763;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+    }
+
+    .btnThem:hover {
+      background-color: #2E4B38;
+    }
+
+    .bang_Them {
+      background-color: white;
+      padding: 5px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .bang {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+
+    }
+
+    .bang th, .bang td {
+      border: 1px solid #ccc;
+      padding: 8px 5px;
+    }
+
+    .bang thead th {
+      background-color: #9EDF9C;
+      font-weight: bold;
+    }
+
+    .bang tbody tr:hover {
+      background-color: #E8FFD7;
+    }
+
+    .btn-edit {
+      background-color: #5D8763;
+      color: #fff;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .btn-edit:hover {
+      background-color: #3B5D46;
+    }
+
+    .btn-delete {
+      background-color: #E74C3C;
+      color: #fff;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .btn-delete:hover {
+      background-color: #c0392b;
+    }
+
+    .pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+#form_add{
+        padding:0x;
+        background-color: #E8FFD7;
+        border-radius: 10px;
+
+    } 
+
+    .form_noi_dung{
+        background-color:white;
+        border-radius: 10px;
+        margin:10px;
+        padding: 10px;
+    }
+    .form-group{
+        text-align: left;
+        display: block;
+        margin-bottom: 5px
+    }
+
+    .form-group label {
+        display: block;
+        text-align: left;
+        color: #6c757d;  
+        font-weight: 500; 
+        font-size: 15px;
+    }
+
+    .form-control
+    {
+	    border-radius: 2px;
+	    box-shadow: none;
+	    border: 1px solid #dddddd;
+	    background: #ffffff;
+	    padding: 7px;
+        height:30px;
+    }
+
+    textarea.form-control {
+        height: 60px;
+        resize: vertical; 
+    }    
+    .khungbtn {
+        padding: 5px;
+        text-align: right;
+    }
+    
+    .btnThem{
+        background-color:#5D8763;
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 5px;
+        font-size: 14px; 
+    }
+
+    .bang_Them2 {
+      background-color: white;
+      padding: 5px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width:380px;
+      display:block;
+      
+      justify-content: center;  
+        margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <header class="container_head">
+    <div class="dieu_huong">
+      <div class="trai">
+        <div class="logo">TLU</div>
+        <nav class="nav">
+          <a href="#">Home</a>
+          <a href="#"><b>Employees</b></a>
+        </nav>
+      </div>
+      <div class="phai">
+        <input type="text" placeholder="Search...">
+        <button class="search-btn">Search</button>
+      </div>
+    </div>
+  </header>
+
+    <div class="container_body">
+      <div class="tieu_de_nho">
+        <p id="tieu_de_ql" class="fw-bold">Manage<b>Employees</b></p>
+        <div class="khungbtn">
+          <button class="btn btn-sm btn-delete">Delete</button>
+          <button type="submit" class="btnThem" id="btnThem" onclick="document.getElementById('bang_Them2').style.display='block'">Add</button>
+        </div>
+      </div>
+
+      <div class="bang_Them">
+        <table class="bang" id="table">
+          <thead class="text-center">
+            <tr id="table-head">
+              <th><input type="checkbox" name="chon" value="1"></th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Actions</th>
+              <th style="display:none;">Ghi chú</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr>
+              <td><input type="checkbox" name="chon" value="1"></td>
+              <td>Lan</td>
+              <td><a href="mailto:chi@gmail.com">chi@gmail.com</a></td>
+              <td>175 Tay Son</td>
+              <td>(171)555-5554</td>
+              <td>
+                <button class="btn btn-sm btn-edit">Edit</button>
+                <button class="btn btn-sm btn-delete">Delete</button>
+              </td>
+              <td style="display:none;">ghi chú ở đây</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="chon" value="1"></td>
+              <td>Hoa</td>
+              <td><a href="mailto:h@gmail.com">h@gmail.com</a></td>
+              <td>109 Tay Son</td>
+              <td>(171)555-3554</td>
+              <td>
+                <button class="btn btn-sm btn-edit">Edit</button>
+                <button class="btn btn-sm btn-delete">Delete</button>
+              </td>
+              <td style="display:none;">ghi chú ở đây</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="chon" value="1"></td>
+              <td>Mùi</td>
+              <td><a href="mailto:m@gmail.com">m@gmail.com</a></td>
+              <td>175 Tay Son</td>
+              <td>(171)555-5554</td>
+              <td>
+                <button class="btn btn-sm btn-edit">Edit</button>
+                <button class="btn btn-sm btn-delete">Delete</button>
+              </td>
+              <td style="display:none;">ghi chú ở đây</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="text-align: right;">
+            <div class="pagination">
+                <a href="#">Previous</a>
+                <a href="#">1</a>
+                <a href="#" class="active">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">Next</a>
+        </div>
+</div>
+      </div>
+    </div>
+  </div>
+
+            <div class="bang_Them2" id="bang_Them2" style="margin-top: 20px;">
+  
+                <form class="form_add" id="form_add">
+                <h4 class="Tieu_de" style="color:#1B3C53; margin-bottom: 15px;">Add Employee</h4>
+                <p id="thongBao" style="color: green; font-weight: bold;"></p>
+
+                <div class="form-group mb-3">
+                <label for="hoten" class="form-label">Name</label>
+                <input type="text" class="form-control" id="hoten" name="hoten" required>
+                </div>
+
+                <div class="form-group mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+
+                <div class="form-group mb-3">
+                <label for="diachi" class="form-label">Address</label>
+                <input type="text" class="form-control" id="diachi" name="diachi">
+                </div>
+
+                <div class="form-group mb-3">
+                <label for="sdt" class="form-label">Phone</label>
+                <input type="number" class="form-control" id="sdt" name="sdt">
+                </div>
+                <div class="khungbtn">
+                <button type="submit" class="btnThem">Gửi thông tin</button>
+                </div>
+            </form>
+            </div>
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
