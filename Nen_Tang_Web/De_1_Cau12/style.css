@@ -1,0 +1,170 @@
+body {
+    background-color: #f4f6f9;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+.container_head {
+    background-color: #D7D7D7;
+    padding: 10px;
+}
+
+.dieu_huong {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trai {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 22px;
+    color: black;
+}
+
+.nav a {
+    color: black;
+    text-decoration: none;
+    margin: 0 8px;
+}
+.nav a:hover {
+    text-decoration: underline;
+}
+
+.phai {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.phai input[type="text"] {
+    flex: 1;
+    min-width: 150px;
+    border:1px solid #BBBBBB ;
+    border-radius: 2px;
+}
+.search-btn {
+    padding: 3px 9px;
+    color: #008000;
+    border: 1px solid #008000;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.tieu_de_nho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1B3C53;
+    padding: 10px 20px;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+.tieu_de_nho p {
+    margin: 0;
+    font-size: 20px;
+}
+
+.khungbtn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.btnThem {
+    background-color: #008000;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.btnThem:hover {
+    background-color: #5FA62F;
+}
+.btn-delete1 {
+    background-color: #E74C3C;
+    color: #fff;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+.btn-delete1:hover {
+    background-color: #B22222;
+}
+
+.bang_Them {
+    padding: 5px;
+    border-radius: 1px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.bang {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+.bang th, .bang td {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 5px;
+    font-size: 13px;
+}
+.bang thead th {
+    background-color: #EEEEEE;
+    font-weight: bold;
+}
+.bang tbody tr:hover {
+    background-color: #EEEEEE;
+}
+.btn-edit:hover {
+    border: 1px solid #FFD700;
+}
+.btn-delete:hover {
+    border: 1px solid #FB4141;
+}
+
+.chanTrang {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+.showing-entries {
+    font-size: 13px;
+    color: #1B3C53;
+}
+.phantrang-wrapper {
+    text-align: right;
+}
+.pagination {
+    display: inline-block;
+}
+.pagination a {
+    color: #999;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 2px;
+    font-size: 13px;
+}
+.pagination a:hover:not(.active) {
+    background-color: #33CCFF;
+}
+.modal .modal-dialog {
+    max-width: 400px;   
+}
+.modal .modal-content {
+    border-radius: 0px;
+}
+label.error {
+    color: #dc3545 !important;
+    font-size: 12px;
+    display: block;
+}
+input.error {
+    border-color: #dc3545 !important;
+    background: #fff5f5;
+}
