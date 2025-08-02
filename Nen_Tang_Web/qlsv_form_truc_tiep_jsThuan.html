@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hệ thống quản lý sinh viên</title>
+  <link rel="stylesheet" href="libs/css/bootstrap.min.css">
+  <style>
+    body {
+        background-color: #f4f6f9;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        /* background-image: url('bg_chi.png'); */
+    }
+
+    .container_head {
+        display: flex;                
+        justify-content: center;     
+        align-items: center;          
+        text-align: center;
+    }
+
+    #head {
+        text-align: center;
+        font-size: 25px;
+        width: 1264px;
+        margin: 0 auto;
+        border-radius: 10px;
+        background-color: #526E48;
+        height: 60px;
+        display: flex;               
+        justify-content: center;     
+        align-items: center;         
+        color: white;
+    }
+
+    h1 {
+        color: #1976d2;
+        margin: 30px 0;
+        text-align: center;
+    }
+
+    .container_body {
+        margin-top:10px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;  
+        gap: 20px;
+        flex-wrap: wrap;        
+    }
+
+    .container_body_left {
+        flex: 0 0 380px;    
+        max-width: 380px;
+        border-radius: 10px;
+    }
+
+    .Tieu_de {
+    background-color:#9EDF9C;
+    padding: 6px;
+    border-radius: 7px;
+    font-weight: bold;
+    text-align: center;
+    color:black;       
+    margin: 0 0 12px 0;  
+    font-size: 20px;
+}
+
+    #form_add{
+        padding:0x;
+        background-color: #E8FFD7;
+        border-radius: 10px;
+
+    } 
+
+    .form_noi_dung{
+        background-color:white;
+        border-radius: 10px;
+        margin:10px;
+        padding: 10px;
+    }
+    .form-group{
+        text-align: left;
+        display: block;
+        margin-bottom: 5px
+    }
+
+    .form-group label {
+        display: block;
+        text-align: left;
+        color: #6c757d;  
+        font-weight: 500; 
+        font-size: 15px;
+    }
+
+    .form-control
+    {
+	    border-radius: 2px;
+	    box-shadow: none;
+	    border: 1px solid #dddddd;
+	    background: #ffffff;
+	    padding: 7px;
+        height:30px;
+    }
+
+    textarea.form-control {
+        height: 60px;
+        resize: vertical; 
+    }    
+    .khungbtn {
+        padding: 5px;
+        text-align: right;
+    }
+    
+    .btnThem{
+        background-color:#5D8763;
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 5px;
+        font-size: 14px; 
+    }
+
+    .btnThem:hover {
+        background-color:  #2E4B38;  
+    }
+    .container_body_right {
+        flex: 1;            
+        max-width: 750px;
+    }
+
+    #table-head >th{
+        background-color: #9EDF9C;
+        text-align: center;
+        justify-content: center;
+        vertical-align: middle; 
+        font-size:15px;
+    }
+
+    #table tbody tr:hover {
+        background-color: #E8FFD7;
+    }
+
+    .bang {
+        width: 100%;
+        border-collapse: collapse; 
+        text-align: center;
+    }
+
+    .bang th, .bang td {
+        border: 1px solid #ccc;
+        padding: 5px 5px;
+    }
+
+    .bang thead th {
+        background: red
+    ;
+        color:black;
+    }
+
+    .bang tbody tr:hover {
+        background-color: #E8FFD7;
+    }
+
+    .btn-edit {
+        background-color: #5D8763;  
+        color: #fff;
+        border: none;
+    }
+
+    .btn-edit:hover {
+        background-color: #3B5D46;  
+        color:#fff;
+    }
+
+    .btn-delete {
+        background-color: #E74C3C; 
+        color: #fff;
+        border: none;
+    }
+
+    .btn-delete:hover {
+        background-color: #c0392b; 
+        color: #fff;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container_head">
+            <p class="navbar-brand fw-bold text-white" id="head" href="#">Quản lý sinh viên</p>
+        </div>
+
+        <div class="container_body">
+            <div class="container_body_left">
+                <form class="form_add" id="form_add">
+                        <h4 class="Tieu_de">Nhập thông tin sinh viên</h4>
+                    <p id="thongBao" style="color: green; font-weight: bold;"></p>
+                    <div class="form_noi_dung">
+                        <div class="form-group">
+                            <label for="masv" class="form-label">Mã sinh viên:</label>
+                            <input type="text" class="form-control" id="masv" name="masv" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hoten" class="form-label">Họ và tên:</label>
+                            <input type="text" class="form-control" id="hoten" name="hoten" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ngaysinh" class="form-label">Ngày sinh:</label>
+                            <input type="date" class="form-control" id="ngaysinh" name="ngaysinh">
+                        </div>
+
+                        <div class="form-group d-flex align-items-center">
+                            <label class="form-label mb-0 me-2">Giới tính:</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gioitinh" id="nu" value="Nữ">
+                                <label class="form-check-label" for="nu">Nữ</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gioitinh" id="nam" value="Nam">
+                                <label class="form-check-label" for="nam">Nam</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ghichu" class="form-label">Ghi chú:</label>
+                            <textarea class="form-control" id="ghichu" name="ghichu" rows="3"></textarea>
+                        </div>
+                    </div>
+                <div class="khungbtn">
+                    <button type="submit" class="btnThem" id="btnThem">Gửi thông tin</button>
+                </div>
+                </form>
+            </div>
+
+            <div class="container_body_right">
+                <table class="bang" id="table" >
+                    <thead class="text-center">
+                        <tr id="table-head">
+                            <th>STT</th>
+                            <th>Mã SV</th>
+                            <th>Họ tên</th>
+                            <th>Email</th>
+                            <th>Giới tính</th>
+                            <th>Ngày sinh</th>
+                            <th>Thao tác</th>
+                            <th style="display:none;">Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr>
+                            <td>1</td>
+                            <td>2251161956</td>
+                            <td>Vũ Thị Linh Chi</td>
+                            <td><a href="mailto:chi@gmail.com">chi@gmail.com</a></td>
+                            <td>Nữ</td>
+                            <td>2004-01-01</td>
+                            <td>
+                                <button class="btn btn-sm btn-edit">Sửa</button>
+                                <button class="btn btn-sm btn-delete">Xóa</button>
+                            </td>
+                            <td style="display:none;">ghi chú ở đây</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2251162090</td>
+                            <td>Mai Giáng My</td>
+                            <td><a href="mailto:maimy@gmail.com">maimy@gmail.com</a></td>
+                            <td>Nữ</td>
+                            <td>2004-01-11</td>
+                            <td>
+                                <button class="btn btn-sm btn-edit">Sửa</button>
+                                <button class="btn btn-sm btn-delete">Xóa</button>
+                            </td>
+                            <td style="display:none;">ghi chú ở đây</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>2251163076</td>
+                            <td>Đào Ngọc Lâm</td>
+                            <td><a href="mailto:lam1521@gmail.com">lam1521@gmail.com</a></td>
+                            <td>Nam</td>
+                            <td>2004-05-01</td>
+                            <td>
+                                <button class="btn btn-sm btn-edit">Sửa</button>
+                                <button class="btn btn-sm btn-delete">Xóa</button>
+                            </td>
+                            <td style="display:none;">ghi chú ở đây</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    <script>
+        let selectedRow = null;
+
+        document.getElementById("btnThem").addEventListener("click", function(e){
+        e.preventDefault();
+
+        let maSV = document.getElementById("masv").value.trim();
+        let hoTen = document.getElementById("hoten").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let gioiTinh = document.querySelector('input[name="gioitinh"]:checked')?.value || "";
+        let ngaySinh = document.getElementById("ngaysinh").value;
+        let ghiChu = document.getElementById("ghichu").value.trim();
+
+        if(maSV === "" || hoTen === "" || email === ""){
+        alert("Vui lòng nhập đầy đủ thông tin!");
+        return;
+        }
+        
+        let regexEmail = /^\S+@\S+\.\S+$/;
+        if(!regexEmail.test(email)){
+        alert("Email không hợp lệ!");
+        return;
+        }
+
+        if(selectedRow == null){
+            let tbody = document.querySelector("#table tbody");
+            let newRow = tbody.insertRow();
+            newRow.insertCell(0).innerText = tbody.rows.length; // STT tự động
+            newRow.insertCell(1).innerText = maSV;
+            newRow.insertCell(2).innerText = hoTen;
+            newRow.insertCell(3).innerHTML = `<a href="mailto:${email}">${email}</a>`;
+            newRow.insertCell(4).innerText = gioiTinh;
+            newRow.insertCell(5).innerText = ngaySinh;
+            newRow.insertCell(6).innerHTML = `
+            <button class="btn btn-sm btn-edit">Sửa</button>
+            <button class="btn btn-sm btn-delete">Xóa</button>
+            `;
+        let cellGhiChu = newRow.insertCell(7);
+        cellGhiChu.style.display = "none";
+        cellGhiChu.innerText = ghiChu;
+
+        showThongBao("Thêm sinh viên thành công!");
+        }else{
+            selectedRow.cells[1].innerText = maSV;
+            selectedRow.cells[2].innerText = hoTen;
+            selectedRow.cells[3].innerHTML = `<a href="mailto:${email}">${email}</a>`;
+            selectedRow.cells[4].innerText = gioiTinh;
+            selectedRow.cells[5].innerText = ngaySinh;
+            selectedRow.cells[7].innerText = ghiChu;
+
+        showThongBao("Cập nhật sinh viên thành công!");
+        selectedRow = null; 
+        document.getElementById("btnThem").innerText = "Gửi thông tin";
+        }
+
+        document.getElementById("form_add").reset();
+});
+
+        document.querySelector("#table tbody").addEventListener("click", function(e){
+        if(e.target.classList.contains("btn-delete")){
+        if(confirm("Bạn có chắc chắn muốn xóa?")){
+            e.target.parentElement.parentElement.remove();
+            capNhatSTT();
+            showThongBao("Xóa thành công!");
+            }
+        }
+
+        if(e.target.classList.contains("btn-edit")){
+            selectedRow = e.target.parentElement.parentElement;
+            document.getElementById("masv").value = selectedRow.cells[1].innerText;
+            document.getElementById("hoten").value = selectedRow.cells[2].innerText;
+            document.getElementById("email").value = selectedRow.cells[3].innerText;
+            document.getElementById("ngaysinh").value = selectedRow.cells[5].innerText;
+            document.getElementById("ghichu").value = selectedRow.cells[7].innerText;
+
+        let gt = selectedRow.cells[4].innerText;
+            document.querySelector(`input[name="gioitinh"][value="${gt}"]`).checked = true;
+
+        document.getElementById("btnThem").innerText = "Cập nhật";
+  }
+});
+
+        function showThongBao(msg){
+            document.getElementById("thongBao").innerText = msg;
+            setTimeout(() => {
+            document.getElementById("thongBao").innerText = "";
+        }, 3000);
+    }
+
+        function capNhatSTT(){
+            let rows = document.querySelectorAll("#table tbody tr");
+            rows.forEach((row, index) => {
+            row.cells[0].innerText = index + 1;
+        });
+    }
+</script>
+</body>
+</html>

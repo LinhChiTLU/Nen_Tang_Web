@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trường Đại học Thủy lợi</title>
+  <link rel="stylesheet" href="../libs/bootstrap.min.css" />
+  <link rel="stylesheet" href="../libs/fontawesome-free-7.0.0-web/css/all.min.css"/>
+  <style>
+    body {
+      background-color: #f4f6f9;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0px;
+    }
+
+    .container_head {
+      background-color:#181818;
+      padding: 8px;
+      margin-bottom: 20px;
+    }
+
+    .container-body {
+      min-height: calc(100vh - 100px); 
+      padding-bottom: 20px;
+      padding: 5px 8px 0px 8px;
+    }
+
+    .dieu_huong {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height:35px;
+    }
+
+    .trai {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ten_truong {
+      font-weight: bold;
+      font-size: 15px;
+      color:#ffff;
+    }
+
+    .tc{
+      color: white;
+      text-decoration: none;
+      margin: 0px 8px;
+      font-size: 11px;
+    }
+
+    .ql{
+        color:#BBBBBB;
+        text-decoration: none;
+        margin: 0px 8px;
+        font-size: 11px;
+    }
+
+    .nav a:hover {
+      text-decoration: underline;
+    }
+    
+    .phai {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .phai input[type="text"] {
+      padding: 4px 8px;
+      border: 1px solid #ccc;
+      font-size:11px;
+    }
+
+    .search-btn {
+      padding: 4px 12px;
+      background-color:#181818;
+      color: rgb(23, 130, 59);
+      border:0.8px solid  rgb(23, 130, 59);
+      font-size: 11px;
+    }
+
+    .tieu_de_nho {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr; 
+      align-items: center;
+      gap: 10px;
+      background-color: #ffff;
+      padding: 4px 20px 0px 5px;
+      border-radius: 1px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .tieu_de_nho p {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .bang_Them {
+      padding: 5px;
+      border-radius: 1px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .bang {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    .bang th {
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      border-left: none;
+      border-right: none;
+      padding: 8px 5px;
+      color:white;
+      font-size: 11px;
+    }
+
+    .bang td {
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      border-left: none;
+      border-right: none;
+      padding: 3px 5px;
+      color:#000;
+      font-size: 11px;
+    }
+    .bang thead th {
+      background-color:#181818;
+      font-weight: bold;
+    }
+
+    .bang tbody tr:hover {
+      background-color:#C0C0C0;
+    }
+     .btnThem {
+      background-color:#6699FF;
+      color:#181818;
+      border: none;
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+
+    .btnXuat {
+      background-color:#EEEEEE;
+      color:#000;
+      border: none;
+      padding: 5px 12px;
+      font-size: 12px;
+    }
+    
+    .nhap2{
+      display: flex;
+      align-items: center;
+      width:200px;
+      border: 1px solid #ccc;
+      padding: 1px 8px;
+      background-color: #BBBBBB;
+    }
+
+    .nhap2 input[type="text"] {
+      border: none;
+      outline: none;
+      width:130px;
+      text-align: center;
+      font-size: 14px;
+      gap: 15px;
+    }
+
+    .ket_qua-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: 14px;
+        gap: 6px;
+        color: #333;
+    }
+
+    .ket_qua-wrapper select {
+      padding: 4px 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      width:70px;
+      font-size:12px;
+    }
+
+    .nut {
+      padding: 8px;
+      border: none;
+      color: #000;
+      margin:0;
+      cursor: pointer;
+    }
+
+    .btn-view {
+      background-color:#6699FF; 
+    }
+
+    .btn-edit {
+      background-color:#FFD700; 
+    }
+
+    .btn-delete {
+      background-color: #CD5C5C; 
+    }
+
+    .xoa-add{
+      padding:5px;
+    }
+    .btn-danger {
+      background-color:  #CD5C5C;
+      color: #000;
+      border: none;
+      padding: 5px;
+      font-size: 11px;
+    }
+    .xoa-add hr {
+      margin-top: 5px;  
+      margin-bottom: 5px;
+    }
+    footer {
+      background-color: #000080;
+      width: 100%;  
+      padding:0px;           
+    }
+
+    .container-footer {
+      font-size: 11px;
+      color: white;
+      padding-left: 150px;    
+      padding-right: 30px;
+    }
+
+    /* CSS cho Modal Add Employee */
+    .modal .modal-dialog {
+      max-width: 400px;
+    }
+    .modal .modal-header, .modal .modal-body, .modal .modal-footer {
+      padding: 20px 30px;
+      color:	#4A5662;
+    }
+    .modal .modal-content {
+      font-size: 14px;
+      border-radius: 0px;
+    }
+    .modal .modal-footer {
+      background: #ecf0f1;
+      border-radius: 0 0 10px 10px;
+    }
+    .modal .modal-title {
+      display: inline-block;
+    }
+    .modal .form-control {
+      border-radius: 2px;
+      box-shadow: none;
+      border: 1px solid #dddddd;
+      background: #ffffff;
+      padding: 7px;
+    }
+    .modal textarea.form-control {
+      resize: vertical;
+    }
+    .modal .btn {
+      border-radius: 2px;
+      min-width: 100px;
+    } 
+    .modal form label {
+      font-weight: 500;
+      color:#6C7A89 ;
+    }
+
+    .phantrang-wrapper {
+      margin-top: 10px;
+    }
+    .pagination {
+      display: inline-block;
+    }
+
+    .pagination a {
+      color: black;
+      padding: 8px;
+      text-decoration: none;
+      transition: background-color .3s;
+      margin: 0 2px;
+      border-radius: 5px;
+      font-size:11px;
+    }
+    .pagination a:hover:not(.active) {background-color: #6699FF;}
+    .hr-phanTrang{
+      margin-top: 50px;
+    }
+
+    /* CSS cho thông báo lỗi */
+    .error-message {
+      color: #dc3545;
+      font-size: 12px;
+      margin-top: 5px;
+      display: none;
+    }
+    .error-message.show {
+      display: block;
+    }
+    .form-control.is-invalid {
+      border-color: #dc3545;
+      background-color: #fff5f5;
+    }
+  </style>
+</head>
+<body>
+  <header class="container_head">
+    <div class="dieu_huong">
+      <div class="trai">
+        <div class="ten_truong">Trường Đại học Thủy lợi</div>
+      </div>
+      <div class="phai">
+        <nav class="nav">
+          <a class="tc" href="#">Trang chủ</a>
+          <a class="ql" href="#">Quản lý cửa hàng</a>
+        </nav>
+        <input type="text" placeholder="Nhập nội dung tìm kiếm">
+        <button class="search-btn">TÌM KIẾM</button>
+      </div>
+    </div>
+  </header>
+  <div class="container-body">
+    <div class="container">
+    <div class="tieu_de_nho">
+      <div class="khungbtn">
+        <button  type="button" class="btnThem" data-bs-toggle="modal" data-bs-target="#themGiaoDich">
+              <i class="fa-solid fa-circle-plus"></i> THÊM
+        </button>
+        <button type="button" class="btnXuat">
+            <i class="fa-solid fa-upload"></i>
+            XUẤT RA FILE <i class="fa-solid fa-angle-right"></i>
+        </button>
+      </div>
+
+      <div class="nhap2">
+          <i class="fa-solid fa-angle-right"></i>
+          <input type="text" placeholder="Tìm kiếm giao dịch">
+          <i class="fa-brands fa-sistrix"></i>
+      </div>
+
+      <div class="ket_qua-wrapper">
+        <label for="ket_qua_select"><b>Kết</b><br><b>quả</b></label>
+        <select id="ket_qua_select">
+          <option>5</option>
+          <option>10</option>
+          <option>20</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="bang_Them">
+      <table class="bang" id="table">
+        <thead class="text-center">
+          <tr>
+            <th><i class="fa-solid fa-xmark" style="color:#999999"></i></th>
+            <th>Hành động</th>
+            <th>ID</th>
+            <th>Khách hàng</th>
+            <th>Nhân viên</th>
+            <th>Số tiền</th>
+            <th>Ngày mua</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><i class="fa-solid fa-xmark" style="color:#999999"></i></th>
+            <td>
+              <div class="nutHanhdong">
+                <button class="nut btn-view"><i class="fa-solid fa-eye"></i></button><button class="nut btn-edit"><i class="fa fa-pen"></i></button><button class="nut btn-delete"><i class="fa-solid fa-circle-xmark"></i></button>
+              </div>
+            </td>
+            <td>01</td>
+            <td>Vũ Thị Linh Chi</td>
+            <td>Đỗ Thị Quý Mùi</td>
+            <td>950 000</td>
+            <td>08 tháng 1 2024 10:00</td>
+          </tr>
+          <tr>
+            <th><i class="fa-solid fa-xmark" style="color:#999999"></i></th>
+            <td>
+              <div class="nutHanhdong">
+                <button class="nut btn-view"><i class="fa-solid fa-eye"></i></button><button class="nut btn-edit"><i class="fa fa-pen"></i></button><button class="nut btn-delete"><i class="fa-solid fa-circle-xmark"></i></button>
+              </div>
+            </td>
+            <td>02</td>
+            <td>Nguyễn Văn Hùng</td>
+            <td>Phạm Thị Hoa</td>
+            <td>1 200 000</td>
+            <td>12 tháng 2 2024 14:30</td>
+          </tr>
+          <tr>
+            <th><i class="fa-solid fa-xmark" style="color:#999999"></i></th>
+            <td>
+              <div class="nutHanhdong">
+                <button class="nut btn-view"><i class="fa-solid fa-eye"></i></button><button class="nut btn-edit"><i class="fa fa-pen"></i></button><button class="nut btn-delete"><i class="fa-solid fa-circle-xmark"></i></button>
+              </div>
+            </td>
+            <td>03</td>
+            <td>Trần Thị Hương</td>
+            <td>Nguyễn Đức Mạnh</td>
+            <td>850 000</td>
+            <td>25 tháng 3 2024 09:45</td>
+          </tr>
+          <tr>
+            <th><i class="fa-solid fa-xmark" style="color:#999999"></i></th>
+            <td>
+              <div class="nutHanhdong">
+                <button class="nut btn-view"><i class="fa-solid fa-eye"></i></button><button class="nut btn-edit"><i class="fa fa-pen"></i></button><button class="nut btn-delete"><i class="fa-solid fa-circle-xmark"></i></button>
+              </div>
+            </td>
+            <td>04</td>
+            <td>Lê Minh Tuấn</td>
+            <td>Hoàng Thu Trang</td>
+            <td>1 000 000</td>
+            <td>7 tháng 4 2024 16:20</td>
+          </tr>
+          <tr>
+            <th><i class="fa-solid fa-xmark" style="color:#999999"></i></th>
+            <td>
+              <div class="nutHanhdong">
+                <button class="nut btn-view"><i class="fa-solid fa-eye"></i></button><button class="nut btn-edit"><i class="fa fa-pen"></i></button><button class="nut btn-delete"><i class="fa-solid fa-circle-xmark"></i></button>
+              </div>
+            </td>
+            <td>05</td>
+            <td>Đặng Thị Mai</td>
+            <td>Lưu Văn Hải</td>
+            <td>780 000</td>
+            <td>19 tháng 5 2024 11:10</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="xoa-add">
+        <button class="btn-danger"><i style="color:#000" class="fa-solid fa-circle-xmark"></i> DELETE SELECTED RECORDS</button>
+        <hr>
+      </div>
+    </div>
+    <div class="phantrang-wrapper">
+        <hr class="hr-phanTrang">
+        <nav class="pagination">
+          <a href="#">Trang</a>
+          <a href="#">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
+          <a href="#">6</a>
+          <a href="#">&raquo;</a>
+          <a href="#">&raquo;</a>
+        </nav>
+    </div>
+    </div>
+  </div>
+<div class="modal fade" id="themGiaoDich" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="transactionForm">
+        <div class="modal-header">            
+          <h4 class="modal-title">Thêm giao dịch</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">         
+          <div class="form-group">
+            <label for="customer">Khách hàng</label>
+            <input type="text" id="customer" class="form-control" required>
+            <div class="error-message" id="customerError"></div>
+          </div>
+          <div class="form-group">
+            <label for="employee">Nhân viên</label>
+            <input type="text" id="employee" class="form-control" required>
+            <div class="error-message" id="employeeError"></div>
+          </div>
+          <div class="form-group">
+            <label for="amount">Số tiền</label>
+            <input type="text" id="amount" class="form-control" required>
+            <div class="error-message" id="amountError"></div>
+          </div>          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+          <button type="submit" class="btn btn-success">Thêm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="../libs/bootstrap.bundle.min.js"></script>
+<script>
+  class TransactionManager {
+    constructor() {
+      this.init();
+    }
+
+    init() {
+      this.bindEvents();
+    }
+
+    bindEvents() {
+      const form = document.getElementById('transactionForm');
+      form.addEventListener('submit', (e) => this.handleSubmit(e));
+
+      const inputs = form.querySelectorAll('input');
+      inputs.forEach(input => {
+        input.addEventListener('blur', () => this.validateField(input));
+        input.addEventListener('input', () => this.clearFieldError(input));
+      });
+    }
+
+    handleSubmit(e) {
+      e.preventDefault();
+      if (this.validateForm()) {
+        alert('Thêm giao dịch thành công!');
+        document.getElementById('transactionForm').reset();
+        const modal = bootstrap.Modal.getInstance(document.getElementById('themGiaoDich'));
+        modal.hide();
+      }
+    }
+
+    validateForm() {
+      let isValid = true;
+      const fields = ['customer', 'employee', 'amount'];
+
+      fields.forEach(field => {
+        const input = document.getElementById(field);
+        if (!this.validateField(input)) {
+          isValid = false;
+        }
+      });
+
+      return isValid;
+    }
+
+    validateField(input) {
+      const value = input.value.trim();
+      const fieldId = input.id;
+      let isValid = true;
+      let errorMessage = '';
+
+      this.clearFieldError(input);
+
+      switch (fieldId) {
+        case 'customer':
+          if (!value) {
+            errorMessage = 'Tên khách hàng không được để trống';
+            isValid = false;
+          } else if (value.length > 30) {
+            errorMessage = 'Tên khách hàng không được quá 30 ký tự';
+            isValid = false;
+          } else if (!/^[a-zA-ZÀ-ỹ\s]+$/.test(value)) {
+            errorMessage = 'Tên khách hàng chỉ được chứa chữ cái và khoảng trắng';
+            isValid = false;
+          }
+          break;
+
+        case 'employee':
+          if (!value) {
+            errorMessage = 'Tên nhân viên không được để trống';
+            isValid = false;
+          } else if (value.length > 30) {
+            errorMessage = 'Tên nhân viên không được quá 30 ký tự';
+            isValid = false;
+          } else if (!/^[a-zA-ZÀ-ỹ\s]+$/.test(value)) {
+            errorMessage = 'Tên nhân viên chỉ được chứa chữ cái và khoảng trắng';
+            isValid = false;
+          }
+          break;
+
+        case 'amount':
+          if (!value) {
+            errorMessage = 'Số tiền không được để trống';
+            isValid = false;
+          } else if (isNaN(value) || value <= 0) {
+            errorMessage = 'Số tiền phải là số dương';
+            isValid = false;
+          }
+          break;
+      }
+
+      if (!isValid) {
+        this.showFieldError(input, errorMessage);
+      }
+
+      return isValid;
+    }
+
+    showFieldError(input, message) {
+      input.classList.add('is-invalid');
+      const errorElement = document.getElementById(input.id + 'Error');
+      if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.classList.add('show');
+      }
+    }
+
+    clearFieldError(input) {
+      input.classList.remove('is-invalid');
+      const errorElement = document.getElementById(input.id + 'Error');
+      if (errorElement) {
+        errorElement.classList.remove('show');
+      }
+    }
+  }
+
+  const transactionManager = new TransactionManager();
+</script>
+<footer class="footer mt-auto text-white">
+  <div class="container-footer">
+    <h6 class="mb-3">TRƯỜNG ĐẠI HỌC THỦY LỢI</h6>
+    <p class="mb-1"><strong>Địa chỉ:</strong> 175 Tây Sơn, Đống Đa, Hà Nội</p>
+    <p class="mb-1"><strong>Điện thoại:</strong> (024) 38522201 - <strong>Fax:</strong> (024) 35633351</p>
+    <p class="mb-0"><strong>Email:</strong>
+      <a class="email" href="mailto:phonghcth@tlu.edu.vn">
+        phonghcth@tlu.edu.vn
+      </a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
