@@ -1,0 +1,209 @@
+body {
+    background-color: #f4f6f9;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+.container_head {
+    background-color:#181818;
+    padding: 8px;
+    margin-bottom: 20px;
+}
+.container-body {
+    min-height: calc(100vh - 100px); 
+    padding: 5px 8px 0 8px;
+}
+.dieu_huong {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:35px;
+}
+.trai { display: flex; align-items: center; gap: 12px; }
+.ten_truong {
+    font-weight: bold;
+    font-size: 15px;
+    color:#fff;
+}
+.tc, .ql {
+    text-decoration: none;
+    margin: 0 8px;
+    font-size: 11px;
+}
+.tc { color: white; }
+.ql { color:#BBBBBB; }
+.nav a:hover { text-decoration: underline; }
+.phai { display: flex; align-items: center; gap: 12px; }
+.phai input[type="text"], .ket_qua-wrapper select {
+    border: 1px solid #ccc;
+    font-size: 12px;
+}
+.phai input[type="text"] {
+    padding: 4px 8px;
+    font-size:11px;
+}
+.search-btn {
+    padding: 4px 12px;
+    background-color:#181818;
+    color: rgb(23, 130, 59);
+    border:0.8px solid rgb(23, 130, 59);
+    font-size: 11px;
+}
+.tieu_de_nho {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    align-items: center;
+    gap: 10px;
+    background-color: #fff;
+    padding: 4px 20px 0 5px;
+    border-radius: 1px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.tieu_de_nho p { margin: 0; font-size: 20px; }
+.bang_Them {
+    padding: 5px;
+    border-radius: 1px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.bang {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+.bang th, .bang td {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-left: none;
+    border-right: none;
+}
+.bang thead th {
+    padding: 8px 5px;
+    color:white;
+    font-size: 11px;
+    background-color:#181818;
+    font-weight: bold;
+}
+.bang tbody th {
+    color: #000;
+    font-size: 11px;
+    background: none;
+    font-weight: normal;
+}
+.bang td {
+    padding: 3px 5px;
+    color:#000;
+    font-size: 11px;
+}
+.bang tbody tr:hover { background-color:#C0C0C0; }
+.btnThem, .btnXuat, .btn-danger {
+    border: none;
+    font-size: 12px;
+    padding: 5px 10px;
+}
+.btnThem {
+    background-color:#6699FF;
+    color:#181818;
+    font-size: 11px;
+}
+.btnXuat {
+    background-color:#EEEEEE;
+    color:#000;
+    padding: 5px 12px;
+    font-size: 11px;
+}
+.btn-danger {
+    background-color: #CD5C5C;
+    color: #000;
+    font-size: 11px;
+    padding: 5px;
+}
+.nhap2 {
+    display: flex;
+    align-items: center;
+    width:200px;
+    border: 1px solid #ccc;
+    padding: 1px 8px;
+    background-color: #BBBBBB;
+}
+.nhap2 input[type="text"] {
+    border: none;
+    outline: none;
+    width:130px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.ket_qua-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 12px;
+    gap: 6px;
+    color: #333;
+}
+.ket_qua-wrapper select { width:70px; padding: 4px 8px; }
+.nut, .btn-view, .btn-edit, .btn-delete {
+    padding: 8px;
+    border: none;
+    color: #000;
+    margin:0;
+    cursor: pointer;
+}
+.btn-view { background-color:#6699FF; }
+.btn-edit { background-color:#FFD700; }
+.btn-delete { background-color:#CD5C5C; }
+
+.hoat_dong {
+  display: flex;          
+  justify-content: flex-start; 
+  align-items: center;
+  border: 1px dashed #aaa;
+  width: 200px;              
+  height: 25px;
+  margin-left: auto;      
+}
+footer {
+    background-color: #000080;
+    width: 100%;  
+    padding:0;           
+}
+.container-footer {
+    font-size: 11px;
+    color: white;
+    padding: 0 30px 0 150px;    
+}
+.modal .modal-dialog { max-width: 400px; }
+.modal .modal-header, .modal .modal-body, .modal .modal-footer {
+    padding: 20px 30px;
+    color:#4A5662;
+}
+.modal .modal-content { font-size: 14px; border-radius: 0; }
+.modal .modal-footer { background: #ecf0f1; border-radius: 0 0 10px 10px; }
+.modal .modal-title { display: inline-block; }
+.modal .form-control {
+    border-radius: 2px;
+    box-shadow: none;
+    border: 1px solid #dddddd;
+    background: #ffffff;
+    padding: 7px;
+}
+.modal textarea.form-control { resize: vertical; }
+.modal .btn { border-radius: 2px; min-width: 100px; } 
+.modal form label { font-weight: 500; color:#6C7A89 ; }
+label.error {
+    color: #dc3545 !important;
+    font-size: 12px;
+    display: block;
+}
+input.error {
+    border-color: #dc3545 !important;
+    background: #fff5f5;
+}
+.showing-entries {
+    font-size: 13px;
+    color: #1B3C53;
+    text-align: right;
+}
+hr{
+    margin-top: 100px;
+}
