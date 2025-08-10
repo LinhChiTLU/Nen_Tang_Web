@@ -1,0 +1,185 @@
+body {
+        background-color: #f4f6f9;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container_head {
+        display: flex;                
+        justify-content: center;     
+        align-items: center;          
+        text-align: center;
+    }
+
+    #head {
+        text-align: center;
+        font-size: 25px;
+        width: 1264px;
+        margin: 0 auto;
+        border-radius: 2px;
+        background-color: #526E48;
+        height: 50px;
+        display: flex;               
+        justify-content: center;     
+        align-items: center;         
+        color: white;
+    }
+
+    h1 {
+        color: #1976d2;
+        margin: 30px 0;
+        text-align: center;
+    }
+
+    .container_body {
+        margin-top:10px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;  
+        gap: 20px;
+        flex-wrap: wrap;        
+    }
+
+    .container_body_left {
+        flex: 0 0 380px;    
+        max-width: 380px;
+        border-radius: 10px;
+    }
+
+    .Tieu_de {
+    background-color:#9EDF9C;
+    padding: 6px;
+    border-radius: 7px;
+    font-weight: bold;
+    text-align: center;
+    color:black;       
+    margin: 0 0 12px 0;  
+    font-size: 20px;
+}
+
+    #form_add{
+        padding:0x;
+        background-color: #E8FFD7;
+        border-radius: 10px;
+
+    } 
+
+    .form_noi_dung{
+        background-color:white;
+        border-radius: 10px;
+        margin:10px;
+        padding: 10px;
+    }
+    .form-group{
+        text-align: left;
+        display: block;
+        margin-bottom: 5px
+    }
+
+    .form-group label {
+        display: block;
+        text-align: left;
+        color: #6c757d;  
+        font-weight: 500; 
+        font-size: 15px;
+    }
+
+    .form-control
+    {
+	    border-radius: 2px;
+	    box-shadow: none;
+	    border: 1px solid #dddddd;
+	    background: #ffffff;
+	    padding: 7px;
+        height:30px;
+    }
+
+    textarea.form-control {
+        height: 60px;
+        resize: vertical; 
+    }    
+    .khungbtn {
+        padding: 5px;
+        text-align: right;
+    }
+    
+    .btnThem{
+        background-color:#5D8763;
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 5px;
+        font-size: 14px; 
+    }
+
+    .btnThem:hover {
+        background-color:  #2E4B38;  
+    }
+    .container_body_right {
+        flex: 1;            
+        max-width: 750px;
+    }
+
+    #table-head >th{
+        background-color: #9EDF9C;
+        text-align: center;
+        justify-content: center;
+        vertical-align: middle; 
+        font-size:15px;
+    }
+
+    #table tbody tr:hover {
+        background-color: #E8FFD7;
+    }
+
+    .bang {
+        width: 100%;
+        border-collapse: collapse; 
+        text-align: center;
+    }
+
+    .bang th, .bang td {
+        border: 1px solid #ccc;
+        padding: 5px 5px;
+    }
+
+    .bang thead th {
+        background: red
+    ;
+        color:black;
+    }
+
+    .bang tbody tr:hover {
+        background-color: #E8FFD7;
+    }
+
+    .btn-edit {
+        background-color: #5D8763;  
+        color: #fff;
+        border: none;
+    }
+
+    .btn-edit:hover {
+        background-color: #3B5D46;  
+        color:#fff;
+    }
+
+    .btn-delete {
+        background-color: #E74C3C; 
+        color: #fff;
+        border: none;
+    }
+
+    .btn-delete:hover {
+        background-color: #c0392b; 
+        color: #fff;
+    }
+    .input-error {
+  border-color: red;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
